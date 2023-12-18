@@ -5,7 +5,7 @@ library(sf)
 
 tracts <- read_tracts(
   year = 2010,
-  dataset = "DomicilioRenda",
+  dataset = "Basico",
   as_data_frame = TRUE
 )
 
@@ -21,4 +21,4 @@ cwb_tracts_final <- cwb_tracts |>
   select(code_tract, name_muni, name_neighborhood) |> 
   left_join(cwb_tracts_data, by = "code_tract")
 
-st_write(cwb_tracts_final, "data/cwb_tracts.gpkg")
+st_write(cwb_tracts_final, "data/cwb_tracts.gpkg", append = FALSE)
